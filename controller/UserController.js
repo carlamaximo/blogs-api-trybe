@@ -57,7 +57,6 @@ const login = async (req, res, next) => {
 const deleteUser = async (req, res, next) => {
   try {
     const { id } = req;
-    console.log(id, '>>>>>>>>>>>>>>>ID<<<<<<<<<<<<<<<<');
     await deleteUserById(id);
     return res.status(204).end();
   } catch (e) {
