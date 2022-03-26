@@ -63,8 +63,6 @@ const permisionValidate = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
     const { id: postId } = req.params;
-
-    console.log(postId, '>>>>>>>>>>POSTID<<<<<<<<<<<<<<');
     const userId = await getUserIdByToken(authorization);
 
     const post = await findPostById(postId);
@@ -81,7 +79,6 @@ const permisionValidate = async (req, res, next) => {
 const postExist = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id, '>>>>>>>>>>ID<<<<<<<<<<<<<<');
 
     const result = await findPostById(id);
     if (!result) res.status(404).json({ message: 'Post does not exist' });
